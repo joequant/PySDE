@@ -9,39 +9,14 @@ try:
 except ImportError:
     from distutils.core import setup
 
-# Utility function to read the README file.
-# Used for the long_description.  It's nice, because now 1) we have a top level
-# README file and 2) it's easier to type in the README file than to put a raw
-# string in below ...
-def check_dependencies():
-    install_requires = []
-
-    # Just make sure dependencies exist, I haven't rigorously
-    # tested what the minimal versions that will work are
-    # (help on that would be awesome)
-    try:
-        import numpy
-    except ImportError:
-        install_requires.append('numpy')
-    try:
-        import sympy
-    except ImportError:
-        install_requires.append('sympy')
-    try:
-        import scipy
-    except ImportError:
-        install_requires.append('scipy')    
-    try:
-        import matplotlib
-    except ImportError:
-        install_requires.append('matplotlib')
-
-    return install_requires
-
-
 if __name__ == "__main__":
   
-   install_requires = check_dependencies()
+   install_requires = [
+       'numpy',
+       'sympy',
+       'scipy',
+       'matplotlib'
+       ]
    setup(
        name = "pysde",
        version = "1.0.5",
